@@ -23,10 +23,11 @@ def create_solution_template(year, day):
     return f'''#!/usr/bin/env python3
 # Solutions pour le jour {day:02d} de l'Advent of Code {year}
 
+from pathlib import Path
+
 def load_input():
     """Charge les données d'entrée."""
-    with open("input.txt") as f:
-        return [line.strip() for line in f.readlines()]
+    return Path(__file__).parent.joinpath("input.txt").read_text().strip().split('\\n')
 
 def part1(data):
     """Résout la partie 1."""
