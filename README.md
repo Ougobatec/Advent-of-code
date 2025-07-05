@@ -54,18 +54,23 @@ Chaque année est contenue dans un répertoire `YYYY`, et chaque répertoire de 
 Les fichiers `solutions.py` suivent une structure avec des fonctions :
 
 ```python
+#!/usr/bin/env python3
+# Solutions pour le jour XX de l'Advent of Code YYYY
+from pathlib import Path
+
 def load_input():
     """Charge les données d'entrée."""
-    with open("input.txt") as f:
-        return [line.strip() for line in f.readlines()]
+    return Path(__file__).parent.joinpath("input.txt").read_text().strip().split('\n')
 
 def part1(data):
     """Résout la partie 1."""
-    return 42  # Votre solution ici
+    # Votre logique ici
+    return 42  # Exemple de retour
 
 def part2(data):
-    """Résout la partie 2."""  
-    return 84  # Votre solution ici
+    """Résout la partie 2."""
+    # Votre logique ici
+    return 84  # Exemple de retour
 
 if __name__ == "__main__":
     data = load_input()
